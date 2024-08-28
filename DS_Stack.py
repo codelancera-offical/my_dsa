@@ -1,3 +1,5 @@
+from my_dsa.DS_Node import Node
+
 class Stack:
     """
     Inplement by list:
@@ -24,6 +26,43 @@ class Stack:
 
     def size(self):
         return len(self._items)
+
+
+class StackL:
+    """
+    Stack by LinkList
+    """
+    def __init__(self):
+        self._head = None
+        self._size = 0
+    
+    def is_empty(self):
+        return self._head == None
+    
+    def push(self, item):
+        temp = Node(item)
+        temp.next = self._head
+        self._head = temp
+        self._size += 1
+
+    def peek(self):
+        if self.is_empty():
+            return "Stack is Empty"
+        else:
+            return self._head.data
+        
+    def pop(self):
+        if self.is_empty():
+            return "Stack is Empty"
+        else:
+            data = self._head.data
+            self._head = self._head.next
+            self._size -= 1
+            return data
+        
+    def size(self):
+        return self._size
+
 
 
 
